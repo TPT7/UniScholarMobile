@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button,TextInput, SafeAreaView} from 'react-native';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <Text>Welcome to Uni Scholar</Text>
+      <Text>This platform allows students to ask questions and share answers. Feel free to explore and contribute to the community.</Text>
+      <Text>Questions</Text>
+      <Button title='Send' onPress={() => console.log('Button clicked')}/>
+      <Button title='Comments' onPress={() => console.log('Button clicked')}/>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>  
   );
 }
 
@@ -18,3 +23,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
