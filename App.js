@@ -1,9 +1,65 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Button, TextInput, SafeAreaView, TouchableOpacity, Image, FlatList } from 'react-native';
+import axios from 'axios';
 
 export default function App() {
   const [showComments, setShowComments] = useState(false);
+  const [question, setQuestion] = useState('');
+  const [comment, setComment] = useState('');
+  const [questions, setQuestions] = useState([]);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    fetchQuestions();
+    fetchComments();
+  }, []);
+
+  const fetchQuestions = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/questions');
+      setQuestions(response.data);
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+    }
+  };
+
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/comments');
+      setComments(response.data);
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
+  };
+
+  const sendQuestion = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/questions', { question });
+      if (response.data.success) {
+        fetchQuestions();
+        setQuestion('');
+      } else {
+        alert('Failed to send question.');
+      }
+    } catch (error) {
+      console.error('Error sending question:', error);
+    }
+  };
+
+  const addComment = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/comments', { comment });
+      if (response.data.success) {
+        fetchComments();
+        setComment('');
+      } else {
+        alert('Failed to add comment.');
+      }
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
+  };
 
   const toggleComments = () => {
     setShowComments(!showComments);
@@ -32,22 +88,44 @@ export default function App() {
         <TextInput
           style={styles.input}
           placeholder="Type your question here..."
+          value={question}
+          onChangeText={setQuestion}
         />
         <View style={styles.buttonContainer}>
-          <Button title='Send' onPress={() => console.log('Send Button clicked')} />
+          <Button title='Send' onPress={sendQuestion} />
           <View style={styles.gap} />
           <Button title='Comments' onPress={toggleComments} />
         </View>
+        <FlatList
+          data={questions}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.questionItem}>
+              <Text>{item.question}</Text>
+            </View>
+          )}
+        />
         {showComments && (
           <View style={styles.commentsBox}>
             <Text style={styles.subTitle}>Comments</Text>
             <TextInput
               style={styles.input}
               placeholder="Type your comment here..."
+              value={comment}
+              onChangeText={setComment}
             />
             <View style={styles.addButtonContainer}>
-              <Button title='Add Comment' onPress={() => console.log('Add Comment clicked')} />
+              <Button title='Add Comment' onPress={addComment} />
             </View>
+            <FlatList
+              data={comments}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => (
+                <View style={styles.commentItem}>
+                  <Text>{item.comment}</Text>
+                </View>
+              )}
+            />
           </View>
         )}
       </View>
@@ -84,7 +162,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   box: {
-    width: '80%', // Reduced width for proper alignment
+    width: '80%',
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 20,
@@ -113,7 +191,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   input: {
-    height: 50,  // Increased height
+    height: 50,
     borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 5,
@@ -135,6 +213,6 @@ const styles = StyleSheet.create({
   },
   addButtonContainer: {
     marginTop: 10,
-    width: '15%',
+    width: '100%',
   },
 });
