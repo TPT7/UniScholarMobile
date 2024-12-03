@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TextInput, FlatList } from 'react-native';
 import axios from 'axios';
+import styles from './styles';
 
 
 const Users = () => {
@@ -76,44 +77,5 @@ const Users = () => {
     </View>
   );
 };
-
-
-const styles = StyleSheet.create({
-  users: {
-    marginTop: 20,
-    position: 'relative', // Relative positioning
-  },
-  userList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between', // Similar to grid gap
-    marginTop: 20,
-  },
-  userCard: {
-    backgroundColor: '#f9f9f9',
-    padding: 15,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3, // For Android shadow
-    textAlign: 'center',
-    marginBottom: 20, // Space between cards
-    width: '45%', // Responsive width, adjust as needed
-  },
-  username: {
-    margin: 0,
-    fontSize: 24, // Convert rem to px equivalent
-    color: 'black',
-  },
-  programme: {
-    fontSize: 16,
-    color: '#555',
-  },
-});
-
 
 export default Users;

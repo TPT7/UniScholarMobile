@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, FlatList} from 'react-native';
 import axios from 'axios';
+import styles from './styles';
 
 
 const HistoryPage = () => {
@@ -112,98 +113,5 @@ const HistoryPage = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  content: {
-    marginLeft: 170, // Adjust left margin to accommodate the smaller sidebar
-    padding: 20,
-  },
-  section: {
-    width: '100%',
-    maxWidth: 800,
-    marginBottom: 20,
-    backgroundColor: '#fff',
-    padding: 20,
-    borderRadius: 8,
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3, // Elevation for Android shadow effect
-  },
-  buttons: {
-    marginTop: 10,
-    flexDirection: 'row',
-    gap: 10, // Adjust gap between buttons
-  },
-  button: {
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 5,
-    backgroundColor: 'black',
-    color: '#fff',
-    textAlign: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-  },
-  textarea: {
-    width: '100%',
-    padding: 10,
-    borderRadius: 5,
-    borderColor: '#ced4da',
-    borderWidth: 1,
-    textAlignVertical: 'top', // For text alignment in multiline text input
-    minHeight: 60, // Minimum height for TextInput
-
-  questionItem: {
-    marginBottom: 20,
-    padding: 20,
-    borderColor: '#ddd',
-    borderWidth: 1,
-    borderRadius: 8,
-    backgroundColor: '#f9f9f9',
-  },
-  commentTextarea: {
-    width: '100%',
-    padding: 10,
-    marginTop: 10,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    textAlignVertical: 'top', // Ensures text starts from the top in multiline input
-    minHeight: 60, // Minimum height for TextInput
-  },
-  submitComment: {
-    marginTop: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: 'black',
-    color: 'white',
-    borderRadius: 5,
-    textAlign: 'center',
-  },
-  commentsSection: {
-    marginTop: 15,
-  },
-  comment: {
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: '#e9e9e9',
-    borderRadius: 5,
-  },
-  buttonHover: {
-    backgroundColor: '#0056b3',
-  },
-  iconButton: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    fontSize: 24,
-    color: 'black',
-  },
-},
-
-});
-
 
 export default HistoryPage;

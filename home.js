@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button} from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import styles from './styles';
 
 
 const HomePage = () => {
@@ -64,79 +65,5 @@ const HomePage = () => {
     </View>
   );
 };
-
-
-const styles = StyleSheet.create({
-  content: {
-    marginLeft: 170, // Adjust left margin to accommodate the smaller sidebar
-    padding: 20,
-  },
-  section: {
-    width: '100%',
-    maxWidth: 800,
-    marginBottom: 20,
-    backgroundColor: '#fff',
-    padding: 20,
-    borderRadius: 8,
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3, // Elevation for Android shadow effect
-  },
-  sectionHeader: {
-    marginBottom: 10,
-    color: 'black',
-    fontSize: 18, // Adjust font size as needed
-    fontWeight: 'bold',
-  },
-  buttons: {
-    marginTop: 10,
-    flexDirection: 'row',
-    gap: 10, // Adjust gap between buttons
-  },
-  button: {
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 5,
-    backgroundColor: 'black',
-    color: '#fff',
-    textAlign: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-  },
-  textarea: {
-    width: '100%',
-    padding: 10,
-    borderRadius: 5,
-    borderColor: '#ced4da',
-    borderWidth: 1,
-    textAlignVertical: 'top', // For text alignment in multiline text input
-    minHeight: 60, // Minimum height for TextInput
-  },
-  commentSection: {
-    marginTop: 20,
-    display: 'none', // Display property is not applicable in React Native
-  },
-  commentSectionHeader: {
-    marginBottom: 10,
-    color: 'black',
-    fontSize: 18, // Adjust font size as needed
-    fontWeight: 'bold',
-  },
-  comment: {
-    backgroundColor: '#f8f9fa',
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  iconButton: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    fontSize: 24, // Adjust font size as needed
-    color: 'black',
-  },
-});
 
 export default HomePage;

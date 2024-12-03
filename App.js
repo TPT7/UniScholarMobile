@@ -36,10 +36,10 @@ const WrappedApp = () => (
   </NavigationContainer>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+const styles = StyleSheet.create({ 
+  container: { 
+    flex: 1, 
+  }, 
 });
 
 export default WrappedApp;
