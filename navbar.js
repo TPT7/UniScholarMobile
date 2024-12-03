@@ -19,7 +19,7 @@ const Navbar = () => {
           setUsername(storedUsername);
           setUserid(parseInt(storedUserId)); // Parse user_id as integer
         } else {
-          const response = await axios.get('http://localhost:5000/api/users');
+          const response = await axios.get('http://192.168.1.10:8081/users');
           if (response.data.length > 0) {
             setUsername(response.data[0].username);
             setUserid(response.data[0].user_id);

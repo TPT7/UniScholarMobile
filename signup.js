@@ -15,7 +15,7 @@ const SignUpPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', { username, password, programme });
+      const response = await axios.post('http://192.168.1.10:8081/signup', { username, password, programme });
       if (response.status === 201) {
         setUser(response.data.user);
         alert('Account created successfully');

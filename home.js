@@ -27,7 +27,7 @@ const HomePage = () => {
       console.log('Sending question:', questionData);
       
       // Send the question along with the user_id to the backend
-      const response = await axios.post('http://localhost:5000/api/questions', questionData);
+      const response = await axios.post('http://192.168.1.10:8081/questions', questionData);
       setQuestion(''); // Clear the question input
       console.log('Question saved, ID:', response.data.id);
     } catch (error) {

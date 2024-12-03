@@ -18,7 +18,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // User login endpoint
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
     const result = await pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
@@ -34,7 +34,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-app.post('/api/signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
   const { username, password, programme } = req.body;
   try {
     const result = await pool.query('INSERT INTO users (username, password, programme) VALUES ($1, $2, $3) RETURNING *', [username, password, programme]);
@@ -45,7 +45,7 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-app.get('/api/users', async (req, res) => {
+app.get('/users', async (req, res) => {
   try {
     const result = await pool.query('SELECT user_id, programme, username FROM users');
     res.json(result.rows); // Send users data as response
@@ -57,7 +57,7 @@ app.get('/api/users', async (req, res) => {
 
 
 //Save question endpoint
-app.post('/api/questions', async (req, res) => {
+app.post('/questions', async (req, res) => {
   const { question, user_id } = req.body;
 
   try {
@@ -91,7 +91,7 @@ app.post('/api/questions', async (req, res) => {
 
 
 
-app.post('/api/comments', async (req, res) => {
+app.post('/comments', async (req, res) => {
   const { question_id,comment } = req.body;
 
   // Validate the input
@@ -120,7 +120,7 @@ app.post('/api/comments', async (req, res) => {
 
 
 // Fetch questions and comments for a specific user
-app.get('/api/questions', async (req, res) => {
+app.get('/questions', async (req, res) => {
   try {
     // Query to select all questions
     const result = await pool.query('SELECT * FROM questions');
