@@ -15,14 +15,14 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://192.168.1.10:8081/login', { username, password });
+      const response = await axios.post('http://192.168.1.6:8081/login', { username, password });
       if (response.status === 200) {
         setUser(response.data.user);
         alert('Login successful');
         await AsyncStorage.setItem('username', username);
         navigation.navigate('Home');
       } else {
-        alert('Login failed');
+        alert('Login failed: ' + response);
       }
     } catch (error) {
       console.error('Error logging in:', error);
@@ -32,15 +32,15 @@ const LoginPage = () => {
 
   return (
     <View style={styles.loginContainer}>
-      <Text style={styles.title}>Uni Scholar Login  Form</Text>
+      <Text style={styles.sectionHeader}>Uni Scholar Login  Form</Text>
       <TextInput
-        style={styles.input}
+        style={styles.loginInput}
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
-        style={styles.input}
+        style={styles.loginInput}
         placeholder="Password"
         value={password}
         secureTextEntry

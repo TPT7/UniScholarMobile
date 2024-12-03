@@ -20,7 +20,7 @@ const Navbar = () => {
           setUsername(storedUsername);
           setUserid(parseInt(storedUserId)); // Parse user_id as integer
         } else {
-          const response = await axios.get('http://192.168.1.10:8081/users');
+          const response = await axios.get('http://192.168.1.6:8081/users');
           if (response.data.length > 0) {
             setUsername(response.data[0].username);
             setUserid(response.data[0].user_id);
@@ -37,6 +37,18 @@ const Navbar = () => {
     getUserData();
   }, []);
 
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('username');
+      await AsyncStorage.removeItem('user_id');
+      setUsername('');
+      setUserid('');
+      navigation.navigate('Login');
+    } catch (err) {
+      console.log('Error logging out');
+    }
+  };
+
   return (
     <View style={styles.navbar}>
       <View style={styles.navLinks}>
@@ -48,6 +60,8 @@ const Navbar = () => {
         <Button title="Home" onPress={() => navigation.navigate('Home')} />
         <Button title="Questions" onPress={() => navigation.navigate('History')} />
         <Button title="Users" onPress={() => navigation.navigate('Users')} />
+        <Button title="Logout" onPress={handleLogout} /> 
+
       </View>
     </View>
   );

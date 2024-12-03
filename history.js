@@ -15,7 +15,7 @@ const HistoryPage = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get('http://192.168.1.10:8081/questions');
+        const response = await axios.get('http://192.168.1.6:8081/questions');
         setQuestions(response.data); // Assuming it returns an array of questions
         setLoading(false);
       } catch (err) {
@@ -32,7 +32,7 @@ const HistoryPage = () => {
     if (comment.trim()) {
       try {
         // Send the comment to the server along with the question ID and user ID
-        const response = await axios.post('http://localhost:5000/comments', {
+        const response = await axios.post('http://192.168.1.6:8081/comments', {
           question_id,
           comment,
         });

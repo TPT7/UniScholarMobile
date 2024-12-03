@@ -28,7 +28,7 @@ const HomePage = () => {
       console.log('Sending question:', questionData);
       
       // Send the question along with the user_id to the backend
-      const response = await axios.post('http://192.168.1.10:8081/questions', questionData);
+      const response = await axios.post('http://192.168.1.6:8081/questions', questionData);
       setQuestion(''); // Clear the question input
       console.log('Question saved, ID:', response.data.id);
     } catch (error) {
@@ -45,13 +45,13 @@ const HomePage = () => {
   return (
     <View style={styles.content}>
       <View style={styles.section}>
-        <Text style={styles.header}>Welcome to Uni Scholar</Text>
+        <Text style={styles.sectionHeader}>Welcome to Uni Scholar</Text>
         <Text>This platform allows students to ask questions and share answers. Feel free to explore and contribute to the community.</Text>
       </View>
       <View style={styles.section}>
-        <Text style={styles.header}>Ask a Question</Text>
+        <Text style={styles.sectionHeader}>Ask a Question</Text>
         <TextInput
-          style={styles.textInput}
+          style={styles.questionItem}
           multiline
           numberOfLines={4}
           placeholder="Type your question here..."

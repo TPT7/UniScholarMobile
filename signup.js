@@ -16,7 +16,7 @@ const SignUpPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://192.168.1.10:8081/signup', { username, password, programme });
+      const response = await axios.post('http://192.168.1.6:8081/signup', { username, password, programme });
       if (response.status === 201) {
         setUser(response.data.user);
         alert('Account created successfully');
@@ -32,23 +32,23 @@ const SignUpPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Uni Scholar Sign Up Form</Text>
+    <View style={styles.loginContainer}>
+      <Text style={styles.sectionHeader}>Uni Scholar Sign Up Form</Text>
       <TextInput
-        style={styles.input}
+        style={styles.loginInput}
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
-        style={styles.input}
+        style={styles.loginInput}
         placeholder="Password"
         value={password}
         secureTextEntry
         onChangeText={setPassword}
       />
       <TextInput
-        style={styles.input}
+        style={styles.loginInput}
         placeholder="Programme"
         value={programme}
         onChangeText={setProgramme}
