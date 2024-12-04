@@ -54,8 +54,10 @@ const LoginPage = () => {
           value={password}
           onChangeText={setPassword}
         />
-        <Button title="Login" onPress={handleLogin} />
-        <Text onPress={() => navigation.navigate('SignUp')}>Create your account here</Text>
+        <View style={styles.buttons}>
+          <Button title="Login" onPress={handleLogin} />
+        </View>
+        <Text style={styles.signUpText} onPress={() => navigation.navigate('SignUp')}>Create your account here</Text>
       </View>
     </View>
   );

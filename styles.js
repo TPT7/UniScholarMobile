@@ -38,25 +38,19 @@ export default StyleSheet.create({
     backgroundColor: '#fff', 
   },
   buttons: {
-    width: '100%', 
-    alignItems: 'center', 
-  },
-  button: {
-    backgroundColor: '#000', 
-    color: '#fff', 
-    paddingVertical: 12, 
-    paddingHorizontal: 20, 
-    borderRadius: 8, 
-    marginBottom: 10,
-    alignItems: 'center', 
-    justifyContent: 'center', 
+    width: 'auto', // Adjust the width to fit the content
+    alignItems: 'flex-start', // Align to the left
+    borderRadius: 10,
+    backgroundColor: 'black',
+    padding: 5, // Add padding for better alignment
+    marginVertical: 5, // Add some vertical margin for spacing
   },
   buttonText: {
-    color: '#fff', 
-    fontSize: 16, 
-    textAlign: 'center', 
+    color: 'white', // White text color
+    textAlign: 'left', // Align text to the left
   },
-  buttonHovered: {
+  
+  buttonsHovered: {
     backgroundColor: '#007bff', 
   },
   loginContainer: {
@@ -170,6 +164,11 @@ export default StyleSheet.create({
   },
   userList: {
     marginTop: 20,
+  },
+  signUpText: {
+    marginTop: 16,
+    color: 'blue',
+    textAlign: 'center',
   },
 });
 

@@ -57,7 +57,7 @@ const HomePage = () => {
           onChangeText={setQuestion}
         />
         <View style={styles.buttons}>
-          <Button title="Submit" onPress={handleSubmit} />
+          <Button style={styles.buttonText} title="Submit" onPress={handleSubmit} />
         </View>
       </View>
     </View>

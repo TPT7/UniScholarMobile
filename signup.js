@@ -54,8 +54,11 @@ const SignUpPage = () => {
           value={programme}
           onChangeText={setProgramme}
         />
-        <Button title="Signup" onPress={handleSignup} />
-        <Text onPress={() => navigation.navigate('Login')}>
+
+        <View style={styles.buttons}>
+          <Button style={styles.buttonText} title="Signup" onPress={handleSignup} />
+        </View>
+        <Text style={styles.signUpText} onPress={() => navigation.navigate('Login')}>
           Login with your credentials
         </Text>
       </View>
