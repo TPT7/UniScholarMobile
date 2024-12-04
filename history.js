@@ -13,7 +13,7 @@ const HistoryPage = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get('http://192.168.1.4:8081/questions');
+        const response = await axios.get('http://192.168.1.4:8082/questions');
         console.log(response.data);  // Debugging line to check the structure of response
         setQuestions(response.data); 
         setLoading(false);
