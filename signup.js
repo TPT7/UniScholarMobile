@@ -32,31 +32,33 @@ const SignUpPage = () => {
   };
 
   return (
-    <View style={styles.loginContainer}>
-      <Text style={styles.sectionHeader}>Uni Scholar Sign Up Form</Text>
-      <TextInput
-        style={styles.loginInput}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.loginInput}
-        placeholder="Password"
-        value={password}
-        secureTextEntry
-        onChangeText={setPassword}
-      />
-      <TextInput
-        style={styles.loginInput}
-        placeholder="Programme"
-        value={programme}
-        onChangeText={setProgramme}
-      />
-      <Button title="Signup" onPress={handleSignup} />
-      <Text onPress={() => navigation.navigate('Login')}>
-        Login with your credentials
-      </Text>
+    <View style={styles.content}>
+      <View style={styles.loginContainer}>
+        <Text style={styles.sectionHeader}>Uni Scholar Sign Up Form</Text>
+        <TextInput
+          style={styles.loginInput}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
+        />
+        <TextInput
+          style={styles.loginInput}
+          placeholder="Password"
+          value={password}
+          secureTextEntry
+          onChangeText={setPassword}
+        />
+        <TextInput
+          style={styles.loginInput}
+          placeholder="Programme"
+          value={programme}
+          onChangeText={setProgramme}
+        />
+        <Button title="Signup" onPress={handleSignup} />
+        <Text onPress={() => navigation.navigate('Login')}>
+          Login with your credentials
+        </Text>
+      </View>
     </View>
   );
 };

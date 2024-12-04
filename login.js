@@ -31,25 +31,27 @@ const LoginPage = () => {
   };
 
   return (
-    <View style={styles.loginContainer}>
-      <Text style={styles.sectionHeader}>Uni Scholar Login  Form</Text>
-      <TextInput
-        style={styles.loginInput}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.loginInput}
-        placeholder="Password"
-        value={password}
-        secureTextEntry
-        onChangeText={setPassword}
-      />
-      <Button title="Login" onPress={handleLogin} />
-      <Text onPress={() => navigation.navigate('SignUp')}>
-        Create your account here
-      </Text>
+    <View style={styles.content}>
+      <View style={styles.loginContainer}>
+        <Text style={styles.sectionHeader}>Uni Scholar Login  Form</Text>
+        <TextInput
+          style={styles.loginInput}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
+        />
+        <TextInput
+          style={styles.loginInput}
+          placeholder="Password"
+          value={password}
+          secureTextEntry
+          onChangeText={setPassword}
+        />
+        <Button title="Login" onPress={handleLogin} />
+        <Text onPress={() => navigation.navigate('SignUp')}>
+          Create your account here
+        </Text>
+      </View>
     </View>
   );
 };

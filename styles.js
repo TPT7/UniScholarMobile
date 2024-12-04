@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   content: {
     flex: 1, // Take up full height of the screen
-    justifyContent: 'center', // Center items vertically
+    justifyContent: 'flex-start', // Align items at the top of the screen
     alignItems: 'center', // Center items horizontally
     backgroundColor: '#f8f8f8', // Light background color
     padding: 20, // Add padding to prevent content from sticking to edges
@@ -11,7 +11,7 @@ export default StyleSheet.create({
   section: {
     width: '100%', // Ensure sections take full width of the screen
     marginBottom: 20, // Space between sections
-    alignItems: 'center', // Center content horizontally within each section
+    alignItems: 'flex-start', // Align items to the left within each section
     backgroundColor: '#ffffff', // White background for each section
     borderRadius: 15, // Rounded corners for each section
     padding: 20, // Padding inside the section for a clean look
@@ -63,12 +63,17 @@ export default StyleSheet.create({
     width: '90%', // Reduce the container width to fit content better
     maxWidth: 400, // Set a maximum width for large screens
     padding: 20, // Padding around the content
-    borderWidth: 1, // Smaller border width
-    borderColor: '#ccc', // Border color
-    borderRadius: 10, // Rounded corners for the container
-    backgroundColor: '#fff', // Background color of the container
+    borderWidth: 1, // Border width for the container
+    borderColor: '#ccc', // Border color for the container
     alignItems: 'center', // Horizontally center the elements inside the container
-    marginTop: 100, // Adds space at the top of the screen
+    borderRadius: 15, // Rounded corners for the container
+    backgroundColor: '#fff', // White background for the container
+    shadowColor: '#000', // Shadow color
+    shadowOffset: { width: 0, height: 2 }, // Shadow offset for depth
+    shadowOpacity: 0.1, // Shadow opacity
+    shadowRadius: 4, // Shadow radius for blur effect
+    elevation: 5, // For Android shadow
+    marginTop: 20, // Align the container at the top with a small margin
     marginHorizontal: '5%', // Adds equal margin on both sides of the container
   },
   sectionHeader: {
@@ -82,7 +87,7 @@ export default StyleSheet.create({
     height: 40,
     borderColor: '#ccc', // Border color for input fields
     borderWidth: 1, // Smaller border for input fields
-    borderRadius: 5, // Rounded corners for input fields
+    borderRadius: 10, // Rounded corners for input fields
     marginBottom: 15, // Adds space below the input field
     paddingLeft: 10, // Padding inside the input field
   },
@@ -93,7 +98,7 @@ export default StyleSheet.create({
   },
   navbar: {
     width: '100%', // Ensure it spans the full width of the screen
-    backgroundColor: '#white', // Dark background for the navbar
+    backgroundColor: 'white', // Dark background for the navbar
     paddingVertical: 10, // Vertical padding for spacing inside the navbar
     paddingHorizontal: 20, // Horizontal padding for spacing inside the navbar
     flexDirection: 'row', // Align items horizontally
