@@ -2,79 +2,79 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   content: {
-    flex: 1, // Take up full height of the screen
-    justifyContent: 'flex-start', // Align items at the top of the screen
-    alignItems: 'center', // Center items horizontally
-    backgroundColor: '#f8f8f8', // Light background color
-    padding: 20, // Add padding to prevent content from sticking to edges
+    flex: 1, 
+    justifyContent: 'flex-start', 
+    alignItems: 'center', 
+    backgroundColor: '#f8f8f8', 
+    padding: 20, 
   },
   section: {
-    width: '100%', // Ensure sections take full width of the screen
-    marginBottom: 20, // Space between sections
-    alignItems: 'flex-start', // Align items to the left within each section
-    backgroundColor: '#ffffff', // White background for each section
-    borderRadius: 15, // Rounded corners for each section
-    padding: 20, // Padding inside the section for a clean look
-    shadowColor: '#000', // Shadow effect for a card-like appearance
+    width: '100%', 
+    marginBottom: 20, 
+    alignItems: 'flex-start', 
+    backgroundColor: '#ffffff', 
+    borderRadius: 15, 
+    padding: 20, 
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 5, // For Android shadow
+    elevation: 5,
   },
   sectionHeader: {
-    fontSize: 24, // Larger text for the header
-    fontWeight: 'bold', // Make the header text bold
-    marginBottom: 10, // Space between header and content
-    color: '#333', // Dark text color for good readability
+    fontSize: 24, 
+    fontWeight: 'bold', 
+    marginBottom: 10, 
+    color: '#333', 
   },
   questionItem: {
-    width: '100%', // Take full width of the screen
-    borderWidth: 1, // Border around the text input
-    borderColor: '#ccc', // Light border color
-    borderRadius: 10, // Rounded corners for the text input
-    padding: 10, // Add padding inside the text input
-    fontSize: 16, // Font size for the text inside the input
-    marginBottom: 20, // Space after the input box
-    backgroundColor: '#fff', // White background for input
+    width: '100%', 
+    borderWidth: 1, 
+    borderColor: '#ccc', 
+    borderRadius: 10, 
+    padding: 10, 
+    fontSize: 16, 
+    marginBottom: 20, 
+    backgroundColor: '#fff', 
   },
   buttons: {
-    width: '100%', // Ensure buttons span the full width
-    alignItems: 'center', // Center the button horizontally
+    width: '100%', 
+    alignItems: 'center', 
   },
   button: {
-    backgroundColor: '#000', // Default black button color
-    color: '#fff', // White text on the button
-    paddingVertical: 12, // Vertical padding for the button
-    paddingHorizontal: 20, // Horizontal padding for the button
-    borderRadius: 8, // Rounded corners for the button
-    marginBottom: 10, // Space between buttons
-    alignItems: 'center', // Center text inside button
-    justifyContent: 'center', // Center text inside button
+    backgroundColor: '#000', 
+    color: '#fff', 
+    paddingVertical: 12, 
+    paddingHorizontal: 20, 
+    borderRadius: 8, 
+    marginBottom: 10,
+    alignItems: 'center', 
+    justifyContent: 'center', 
   },
   buttonText: {
-    color: '#fff', // White text on the button
-    fontSize: 16, // Button text size
-    textAlign: 'center', // Center the text inside the button
+    color: '#fff', 
+    fontSize: 16, 
+    textAlign: 'center', 
   },
   buttonHovered: {
-    backgroundColor: '#007bff', // Change background to blue on hover (simulated with touch)
+    backgroundColor: '#007bff', 
   },
   loginContainer: {
-    width: '90%', // Reduce the container width to fit content better
-    maxWidth: 400, // Set a maximum width for large screens
-    padding: 20, // Padding around the content
-    borderWidth: 1, // Border width for the container
-    borderColor: '#ccc', // Border color for the container
-    alignItems: 'center', // Horizontally center the elements inside the container
-    borderRadius: 15, // Rounded corners for the container
-    backgroundColor: '#fff', // White background for the container
-    shadowColor: '#000', // Shadow color
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset for depth
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 4, // Shadow radius for blur effect
-    elevation: 5, // For Android shadow
-    marginTop: 20, // Align the container at the top with a small margin
-    marginHorizontal: '5%', // Adds equal margin on both sides of the container
+    width: '90%', 
+    maxWidth: 400, 
+    padding: 20, 
+    borderWidth: 1, 
+    borderColor: '#ccc', 
+    alignItems: 'center', 
+    borderRadius: 15, 
+    backgroundColor: '#fff', 
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1, 
+    shadowRadius: 4, 
+    elevation: 5, 
+    marginTop: 20, 
+    marginHorizontal: '5%', 
   },
   sectionHeader: {
     fontSize: 24,
@@ -83,13 +83,13 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   loginInput: {
-    width: '100%', // Inputs should take full width of the container
+    width: '100%', 
     height: 40,
-    borderColor: '#ccc', // Border color for input fields
-    borderWidth: 1, // Smaller border for input fields
-    borderRadius: 10, // Rounded corners for input fields
-    marginBottom: 15, // Adds space below the input field
-    paddingLeft: 10, // Padding inside the input field
+    borderColor: '#ccc', 
+    borderWidth: 1, 
+    borderRadius: 10,
+    marginBottom: 15, 
+    paddingLeft: 10, 
   },
   link: {
     color: 'blue',
@@ -97,58 +97,58 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
   navbar: {
-    width: '100%', // Ensure it spans the full width of the screen
-    backgroundColor: 'white', // Dark background for the navbar
-    paddingVertical: 10, // Vertical padding for spacing inside the navbar
-    paddingHorizontal: 20, // Horizontal padding for spacing inside the navbar
-    flexDirection: 'row', // Align items horizontally
-    justifyContent: 'center', // Center the navbar content horizontally
-    alignItems: 'center', // Vertically center items within the navbar
-    borderBottomLeftRadius: 10, // Rounded bottom-left corner for smooth design
-    borderBottomRightRadius: 10, // Rounded bottom-right corner for smooth design
-    marginTop: 20, // Add some space from the header
+    width: '100%', 
+    backgroundColor: 'white', 
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
+    flexDirection: 'row', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    borderBottomLeftRadius: 10, 
+    borderBottomRightRadius: 10, 
+    marginTop: 20, 
   },
   navLinks: {
-    flexDirection: 'row', // Arrange the links and buttons horizontally
-    justifyContent: 'space-evenly', // Evenly space out the buttons and links
-    alignItems: 'center', // Vertically align the items in the center
-    width: '100%', // Take up the full width of the navbar
+    flexDirection: 'row', 
+    justifyContent: 'space-evenly', 
+    alignItems: 'center', 
+    width: '100%', 
   },
   link: {
-    color: '#fff', // White color for the text
-    fontSize: 16, // Font size for the links
-    textAlign: 'center', // Center align the link text
-    marginHorizontal: 15, // Space between links
+    color: '#fff', 
+    fontSize: 16, 
+    textAlign: 'center', 
+    marginHorizontal: 15, 
   },
   button: {
-    backgroundColor: '#007bff', // Blue color for the buttons
-    color: '#fff', // White text on the buttons
-    paddingVertical: 8, // Vertical padding for the button
-    paddingHorizontal: 20, // Horizontal padding for the button
-    borderRadius: 8, // Rounded corners for the buttons
-    marginHorizontal: 5, // Space between buttons
+    backgroundColor: '#007bff', 
+    color: '#fff', 
+    paddingVertical: 8, 
+    paddingHorizontal: 20, 
+    borderRadius: 8, 
+    marginHorizontal: 5, 
   },
   searchBox: {
-    flexDirection: 'row', // Make the input and icon align horizontally
-    alignItems: 'center', // Vertically center the items in the row
-    backgroundColor: '#fff', // White background for the search box
-    borderRadius: 8, // Rounded corners for the search box
-    paddingHorizontal: 10, // Horizontal padding inside the search box
-    height: 40, // Set a height for the search box
-    marginBottom: 15, // Add space after the search box
-    shadowColor: '#000', // Shadow to give depth to the box
-    shadowOffset: { width: 0, height: 2 }, // Shadow position
-    shadowOpacity: 0.1, // Slight shadow opacity
-    shadowRadius: 6, // Radius of the shadow
-    elevation: 4, // For Android devices to enable shadow
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    backgroundColor: '#fff', 
+    borderRadius: 8, 
+    paddingHorizontal: 10, 
+    height: 40, 
+    marginBottom: 15, 
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 }, 
+    shadowOpacity: 0.1, 
+    shadowRadius: 6, 
+    elevation: 4, 
   },
   searchInput: {
-    flex: 1, // Take up available space
+    flex: 1, 
     fontSize: 16,
-    paddingVertical: 0, // No vertical padding, to align the text properly
+    paddingVertical: 0, 
   },
   searchIcon: {
-    marginLeft: 10, // Space between the input and the icon
+    marginLeft: 10, 
   },
   userCard: {
     backgroundColor: '#fff',

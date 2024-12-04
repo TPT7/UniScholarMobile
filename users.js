@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, FlatList } from 'react-native';
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import the icon library
+import Icon from 'react-native-vector-icons/FontAwesome'; 
 import styles from './styles';
 
 const Users = () => {

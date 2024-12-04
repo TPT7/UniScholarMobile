@@ -6,17 +6,17 @@ import styles from './styles';
 
 const HistoryPage = () => {
   const [questions, setQuestions] = useState([]);
-  const [comments, setComments] = useState({}); // State to store comments for each question
+  const [comments, setComments] = useState({}); 
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch the question(s) from the backend API
+ 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get('http://192.168.1.6:8081/questions');
-        setQuestions(response.data); // Assuming it returns an array of questions
+        setQuestions(response.data); 
         setLoading(false);
       } catch (err) {
         setError('Error fetching questions');
@@ -27,20 +27,17 @@ const HistoryPage = () => {
     fetchQuestions();
   }, []);
 
-  // Handle comment submission
+
   const handleCommentSubmit = async (question_id) => {
     if (comment.trim()) {
       try {
-        // Send the comment to the server along with the question ID and user ID
         const response = await axios.post('http://192.168.1.4:8081/comments', {
           question_id,
           comment,
         });
 
-        // Clear the comment input after submission
         setComment('');
 
-        // Update the comments state to display the new comment
         const newComment = response.data;
         setComments((prevComments) => ({
           ...prevComments,
@@ -61,7 +58,6 @@ const HistoryPage = () => {
     <View key={item.question_id} style={styles.section}>
       <Text style={styles.question}>Question: {item.question}</Text>
 
-      {/* Display the submitted comments if they exist */}
       {comments[item.question_id] && (
         <View>
           <Text style={styles.answersHeader}>Answers:</Text>
@@ -71,11 +67,10 @@ const HistoryPage = () => {
         </View>
       )}
 
-      {/* Comment form */}
       <TextInput
         style={styles.textInput}
         value={comment}
-        onChangeText={setComment} // Update comment state
+        onChangeText={setComment} 
         placeholder="Write your answer..."
         multiline
         numberOfLines={4}
@@ -83,7 +78,7 @@ const HistoryPage = () => {
       <View style={styles.buttons}>
         <Button
           title="Submit Answer"
-          onPress={() => handleCommentSubmit(item.question_id)} // Submit comment for the specific question
+          onPress={() => handleCommentSubmit(item.question_id)} 
         />
       </View>
     </View>

@@ -18,7 +18,7 @@ const Navbar = () => {
 
         if (storedUsername && storedUserId) {
           setUsername(storedUsername);
-          setUserid(parseInt(storedUserId)); // Parse user_id as integer
+          setUserid(parseInt(storedUserId)); 
         } else {
           const response = await axios.get('http://192.168.1.4:8081/users');
           if (response.data.length > 0) {

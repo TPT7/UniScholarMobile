@@ -16,10 +16,9 @@ const App = () => {
   return (
     <UserProvider>
       <View style={styles.container}>
-        {/* Your custom Navbar will go here */}
+       
         <Navbar />
-        
-        {/* Stack.Navigator now has headerShown set to false globally */}
+  
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="History" component={HistoryPage} />
