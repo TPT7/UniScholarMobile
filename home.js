@@ -26,7 +26,7 @@ const HomePage = () => {
 
       console.log('Sending question:', questionData);
       
-      const response = await axios.post('http://192.168.1.4:8081/questions', questionData);
+      const response = await axios.post('http://192.168.1.4:8082/questions', questionData);
       setQuestion(''); 
       console.log('Question saved, ID:', response.data.id);
     } catch (error) {

@@ -29,7 +29,7 @@ const HistoryPage = () => {
   const handleCommentSubmit = async (question_id) => {
     if (comment.trim()) {
       try {
-        const response = await axios.post('http://192.168.1.4:8081/comments', {
+        const response = await axios.post('http://192.168.1.4:8082/comments', {
           question_id,
           comment,
         });

@@ -4,7 +4,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
-const port = 8081;
+const port = 8082;
 
 const pool = new Pool({
   user: 'postgres',

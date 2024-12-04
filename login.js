@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import UserContext from './usercontext';
 import styles from './styles';
 
@@ -14,27 +13,26 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      // Send login request to backend
-      const response = await axios.post('http://192.168.1.4:8081/login', { username, password });
-
-      if (response.status === 200 && response.data.user) {
-        // Assuming response contains a 'user' object with user info and a token
-        const userData = response.data.user; // Structure based on what the backend returns
-        setUser(userData); // Update context state
-
-        // Store the user and token in AsyncStorage for persistence
-        await AsyncStorage.setItem('username', username);
-        await AsyncStorage.setItem('userToken', userData.token); // Store token or other user data
-
-        alert('Login successful');
-        navigation.navigate('Home');
+      const response = await axios.post('http://192.168.1.4:8082/login', { username, password });
+      
+      if (response.status === 200) {
+        // Assuming response.data.user contains the user details
+        const user = response.data.user;
+  
+        if (user) {
+          // Save the user details in context
+          setUser(user);
+          alert('Login successful');
+          navigation.navigate('Home');
+        } else {
+          alert('Login failed. Please check your credentials.');
+        }
       } else {
-        // Handle unsuccessful login
-        alert('Login failed: Invalid credentials');
+        alert('Login failed. Please check your credentials.');
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('Login failed');
+      alert('Login failed due to an error.');
     }
   };
 

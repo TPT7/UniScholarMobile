@@ -9,20 +9,16 @@ import LoginPage from './login';
 import Navbar from './navbar';
 import Users from './users';
 import { UserProvider } from './usercontext';
-import { useNavigationState } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  // Get the current route name to conditionally render the Navbar
-  const currentRoute = useNavigationState((state) => state.routes[state.index].name);
-
   return (
     <UserProvider>
       <View style={styles.container}>
-        {/* Conditionally render Navbar based on the current route */}
-        {currentRoute !== 'Login' && currentRoute !== 'SignUp' && <Navbar />}
-
+       
+        <Navbar />
+  
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="History" component={HistoryPage} />
