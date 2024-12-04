@@ -52,11 +52,11 @@ const Navbar = () => {
   return (
     <View style={styles.navbar}>
       <View style={styles.navLinks}>
-        {username ? (
+        {/* {username ? (
           <Text style={styles.link} onPress={() => navigation.navigate('Login')}>Welcome {username}</Text>
         ) : (
           <Text style={styles.link} onPress={() => navigation.navigate('Login')}>Welcome</Text>
-        )}
+        )} */}
         <Button title="Home" onPress={() => navigation.navigate('Home')} />
         <Button title="Questions" onPress={() => navigation.navigate('History')} />
         <Button title="Users" onPress={() => navigation.navigate('Users')} />

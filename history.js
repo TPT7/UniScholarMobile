@@ -92,7 +92,7 @@ const HistoryPage = () => {
   return (
     <View style={styles.content}>
       <View style={styles.section}>
-        <Text style={styles.header}>Questions and Answers</Text>
+        <Text style={styles.sectionHeader}>Questions and Answers</Text>
         <Text>You can view all the questions posted and add your comments here.</Text>
       </View>
       <View style={styles.section}>

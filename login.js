@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://192.168.1.6:8081/login', { username, password });
+      const response = await axios.post('http://192.168.1.4:8081/login', { username, password });
       if (response.status === 200) {
         setUser(response.data.user);
         alert('Login successful');

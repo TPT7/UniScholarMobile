@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, FlatList } from 'react-native';
 import axios from 'axios';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Import the icon library
 import styles from './styles';
-
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -43,12 +43,12 @@ const Users = () => {
   return (
     <View style={styles.content}>
       <View style={styles.section}>
-        <Text style={styles.header}>Uni Scholar Users</Text>
+        <Text style={styles.sectionHeader}>Uni Scholar Users</Text>
         <Text>This page displays all the users that are on Uni Scholar.</Text>
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.header}>Users</Text>
+        <Text style={styles.sectionHeader}>Users</Text>
 
         <View style={styles.searchBox}>
           <TextInput
@@ -57,6 +57,7 @@ const Users = () => {
             value={searchQuery}
             onChangeText={handleSearchChange}
           />
+          <Icon name="search" size={20} color="#333" style={styles.searchIcon} />
         </View>
 
         {loading ? (
