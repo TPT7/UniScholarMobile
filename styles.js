@@ -73,7 +73,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.1, 
     shadowRadius: 4, 
     elevation: 5, 
-    marginTop: 20, 
+    marginTop: 220, 
     marginHorizontal: '5%', 
   },
   sectionHeader: {
@@ -104,8 +104,6 @@ export default StyleSheet.create({
     flexDirection: 'row', 
     justifyContent: 'center', 
     alignItems: 'center', 
-    borderBottomLeftRadius: 10, 
-    borderBottomRightRadius: 10, 
     marginTop: 20, 
   },
   navLinks: {

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);  // Initialize as an empty array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,11 +13,19 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://192.168.1.6:8081/users');
-        setUsers(response.data);
+        const response = await axios.get('http://192.168.1.4:8081/users');
+        
+        // Check the structure of the response
+        if (Array.isArray(response.data)) {
+          setUsers(response.data);
+        } else {
+          console.error('Expected an array of users');
+          setUsers([]);  // Fallback in case the data is not an array
+        }
         setLoading(false);
       } catch (err) {
         setError('Error fetching users');
+        setUsers([]);  // Ensure users is an empty array on error
         setLoading(false);
       }
     };
@@ -25,9 +33,10 @@ const Users = () => {
     fetchUsers();
   }, []);
 
-  const filteredUsers = users.filter((user) =>
+  // Check if users is an array before calling filter
+  const filteredUsers = Array.isArray(users) ? users.filter((user) =>
     user.username.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  ) : [];
 
   const handleSearchChange = (text) => {
     setSearchQuery(text);
