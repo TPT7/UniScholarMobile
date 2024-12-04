@@ -54,7 +54,7 @@ const SignUpPage = () => {
         onChangeText={setProgramme}
       />
       <Button title="Signup" onPress={handleSignup} />
-      <Text style={styles.link} onPress={() => navigation.navigate('Login')}>
+      <Text onPress={() => navigation.navigate('Login')}>
         Login with your credentials
       </Text>
     </View>

@@ -32,7 +32,7 @@ const HistoryPage = () => {
     if (comment.trim()) {
       try {
         // Send the comment to the server along with the question ID and user ID
-        const response = await axios.post('http://192.168.1.6:8081/comments', {
+        const response = await axios.post('http://192.168.1.4:8081/comments', {
           question_id,
           comment,
         });
