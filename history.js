@@ -9,6 +9,7 @@ const HistoryPage = () => {
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showBanner, setShowBanner] = useState(false); // State for comment sent banner
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -29,12 +30,12 @@ const HistoryPage = () => {
   const handleCommentSubmit = async (question_id) => {
     if (comment.trim()) {
       try {
-        const response = await axios.post('http://192.168.1.4:8082/comments', {
+        const response = await axios.post('http://192.168.1.4:8082/comments', {//ipv4 address of local machine
           question_id,
           comment,
         });
 
-        setComment('');
+        setComment(''); // Clear the comment input field
 
         const newComment = response.data;
         setComments((prevComments) => ({
@@ -43,12 +44,21 @@ const HistoryPage = () => {
         }));
 
         console.log('Comment submitted');
+
+        // Show success banner
+        setShowBanner(true);
+
+        // Hide the banner after 3 seconds
+        setTimeout(() => {
+          setShowBanner(false);
+        }, 3000);
+
       } catch (err) {
         setError('Error submitting comment');
         console.error(err);
       }
     } else {
-      alert('Comment cannot be empty');
+      console.log('Comment cannot be empty');
     }
   };
 
@@ -84,11 +94,19 @@ const HistoryPage = () => {
   
   return (
     <View style={styles.content}>
+      {/* Display banner if comment is sent */}
+      {showBanner && (
+        <View style={styles.banner}>
+          <Text style={styles.bannerText}>Comment sent successfully</Text>
+        </View>
+      )}
+
       <View style={styles.section}>
         <Text style={styles.sectionHeader}>Questions and Answers</Text>
         <Text>You can view all the questions posted and add your comments here.</Text>
       </View>
-     <View style={styles.section}>
+
+      <View style={styles.section}>
         {loading ? (
           <Text>Loading questions...</Text>
         ) : error ? (
@@ -105,6 +123,6 @@ const HistoryPage = () => {
       </View>
     </View>
   );
-};  
+};
 
 export default HistoryPage;

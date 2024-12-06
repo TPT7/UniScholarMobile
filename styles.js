@@ -38,20 +38,20 @@ export default StyleSheet.create({
     backgroundColor: '#fff', 
   },
   buttons: {
-    width: 'auto', // Adjust the width to fit the content
-    alignItems: 'flex-start', // Align to the left
+    width: 'auto', 
+    alignItems: 'flex-start', 
     borderRadius: 10,
-    backgroundColor: 'black',
-    padding: 5, // Add padding for better alignment
-    marginVertical: 5, // Add some vertical margin for spacing
+    backgroundColor: 'green',
+    padding: 5, 
+    marginVertical: 5, 
   },
   buttonText: {
-    color: 'white', // White text color
-    textAlign: 'left', // Align text to the left
+    color: 'white', 
+    textAlign: 'left', 
   },
   
   buttonsHovered: {
-    backgroundColor: '#007bff', 
+    backgroundColor: 'black', 
   },
   loginContainer: {
     width: '90%', 
@@ -169,6 +169,35 @@ export default StyleSheet.create({
     marginTop: 16,
     color: 'blue',
     textAlign: 'center',
+  },
+  graduationCap: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+ },
+  title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 10,
+  },
+  description: {
+      fontSize: 16,
+      textAlign: 'center',
+      marginBottom: 20,
+  },
+  getStartedButton: {
+      marginTop: 10,
+  },
+  banner: {
+    backgroundColor: 'green',
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  bannerText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

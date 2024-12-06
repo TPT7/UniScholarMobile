@@ -13,7 +13,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://192.168.1.4:8082/users');
+        const response = await axios.get('http://192.168.1.4:8082/users');//ipv4 address of local machine
         
         // Check the structure of the response
         if (Array.isArray(response.data)) {

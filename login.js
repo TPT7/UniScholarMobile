@@ -9,37 +9,52 @@ const LoginPage = () => {
   const { setUser } = useContext(UserContext); // Get the setUser function from context
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showBanner, setShowBanner] = useState(false); // State to manage banner visibility
   const navigation = useNavigation();
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://192.168.1.4:8082/login', { username, password });
+      const response = await axios.post('http://192.168.1.4:8082/login', { username, password });//ipv4 address of local machine
       
       if (response.status === 200) {
-        // Assuming response.data.user contains the user details
         const user = response.data.user;
   
         if (user) {
           // Save the user details in context
           setUser(user);
-          alert('Login successful');
-          navigation.navigate('Home');
+          console.log('Login successful');
+          
+          // Show success banner
+          setShowBanner(true);
+
+          // Hide banner after 3 seconds
+          setTimeout(() => {
+            setShowBanner(false);
+            navigation.navigate('Home');
+          }, 3000);
         } else {
-          alert('Login failed. Please check your credentials.');
+          console.log('Login failed. Please check your credentials.');
         }
       } else {
-        alert('Login failed. Please check your credentials.');
+        console.log('Login failed. Please check your credentials.');
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('Login failed due to an error.');
+      console.log('Login failed due to an error.');
     }
   };
 
   return (
     <View style={styles.content}>
+      {/* Display banner if login is successful */}
+      {showBanner && (
+        <View style={styles.banner}>
+          <Text style={styles.bannerText}>Logged in successfully</Text>
+        </View>
+      )}
+
       <View style={styles.loginContainer}>
-        <Text style={styles.sectionHeader}>Uni Scholar Login Form</Text>
+        <Text style={styles.sectionHeader}>Login</Text>
 
         <TextInput
           style={styles.loginInput}

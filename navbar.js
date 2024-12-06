@@ -20,7 +20,7 @@ const Navbar = () => {
           setUsername(storedUsername);
           setUserid(parseInt(storedUserId)); 
         } else {
-          const response = await axios.get('http://192.168.1.4:8082/users');
+          const response = await axios.get('http://192.168.1.4:8082/users');//ipv4 address of local machine
           if (response.data.length > 0) {
             setUsername(response.data[0].username);
             setUserid(response.data[0].user_id);
